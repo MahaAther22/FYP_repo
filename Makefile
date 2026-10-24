@@ -1,11 +1,10 @@
-
 SRC_DIR := src
 OUT_DIR := out
 
 SOURCES := $(wildcard $(SRC_DIR)/*.md)
 OUTPUTS := $(patsubst $(SRC_DIR)/%.md,$(OUT_DIR)/%.html,$(SOURCES))
 
-.PHONY: all check deps build test clean ci
+.PHONY: all check deps build test package clean ci
 
 all: test
 
@@ -24,7 +23,7 @@ $(OUT_DIR)/%.html: $(SRC_DIR)/%.md package-lock.json | $(OUT_DIR) node_modules
 
 check:
 	@if [ ! -d "$(SRC_DIR)" ] || [ -z "$(SOURCES)" ]; then \
-		echo "ERROR: no .md files found in $(SRC_DIR)" >&2; exit 1; \
+	    echo "ERROR: no .md files found in $(SRC_DIR)" >&2; exit 1; \
 	fi
 	@echo "Found $(words $(SOURCES)) source files"
 
@@ -33,7 +32,10 @@ build: $(OUTPUTS)
 test: build
 	@npm test --silent
 
-clean:
-	rm -rf $(OUT_DIR)
+package: test
+	npm pack
 
-ci: clean check test
+clean:
+	rm -rf $(OUT_DIR) *.tgz
+
+ci: clean deps check test package
