@@ -7,4 +7,9 @@
 
 ## Agreed Review Turnaround
 - All pull requests will be reviewed and addressed within 24 hours.
-EOF
+
+## devops-pipeline package
+
+Renders Markdown sources into HTML pages.
+
+Usage: npx devops-build in.md out.html
