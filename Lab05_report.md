@@ -134,42 +134,41 @@ The broken artifact was tested in a separate directory at `/tmp/lab05-bad`.
 
 The resulting dependency tree was:
 
-```text
-lab05-bad@1.0.0 /tmp/lab05-bad
-└── @mahaather15/devops-pipeline@1.1.0
-```
+    lab05-bad@1.0.0 /tmp/lab05-bad
+    └── @mahaather15/devops-pipeline@1.1.0
 
 Running the command-line build tool produced this error:
 
-```text
-Error: Cannot find module 'markdown-it'
-code: 'MODULE_NOT_FOUND'
-```
+    Error: Cannot find module 'markdown-it'
+    code: 'MODULE_NOT_FOUND'
 
-The failure occurred because `markdown-it` was placed in `devDependencies` in the deliberately broken package instead of being declared as a runtime dependency. Consequently, the consumer's installation did not provide `markdown-it`, which the build tool requires at runtime.
+The failure occurred because `markdown-it` was placed in `devDependencies` in the deliberately broken package instead of being declared as a runtime dependency. Consequently, the consumer installation did not provide `markdown-it`, which the build tool requires at runtime.
 
 The test demonstrates why packages needed during normal execution must be declared in `dependencies`.
 
 ### 9. Package Publishing Status
 
-**Package:** `@mahaather15/devops-pipeline`  
+**Package:** `@MahaAther22/devops-pipeline`
 **Version:** `1.1.0`
 
 Publishing to GitHub Packages was attempted but failed with `E403 permission_denied: create_package`.
 
 The reported error was:
 
-```text
-npm ERR! code E403
-403 Forbidden - PUT https://npm.pkg.github.com/@mahaather15%2fdevops-pipeline
-Permission permission_denied: create_package
-```
+    npm ERR! code E403
+    403 Forbidden - PUT https://npm.pkg.github.com/@mahaather15%2fdevops-pipeline
+    Permission permission_denied: create_package
 
-Therefore, successful publication to GitHub Packages has not been confirmed.
+Because publication to GitHub Packages was unsuccessful, the GitHub Release fallback was used.
 
-**Published package URL:** Not available because the publishing attempt failed.
+A release named **DevOps Pipeline v1.1.0** was successfully created with tag `v1.1.0`, targeting the `main` branch. The packaged artifact `MahaAther22-devops-pipeline-1.1.0.tgz` was attached to the release.
 
-**GitHub Release fallback URL:** Not yet available; a completed release URL has not been provided.
+**GitHub Packages status:** Publishing attempted but failed with an E403 permission error.
+
+**GitHub Release fallback status:** Successfully completed.
+
+**GitHub Release fallback URL:**
+https://github.com/MahaAther22/FYP_repo/releases/tag/v1.1.0
 
 ### 10. Lab 02 Files and Fallback
 
@@ -177,17 +176,12 @@ The lab work uses the project `Makefile`, Markdown source files, build tool, and
 
 The source files are:
 
-```text
-src/greeting.md
-src/notes.md
-src/services.md
-```
+    src/greeting.md
+    src/notes.md
+    src/services.md
 
 The test file is:
 
-```text
-test/build.test.js
-```
+    test/build.test.js
 
-The GitHub Release fallback has not been confirmed as completed. If the release is created, its actual URL should be added to this report before submission.
-
+The GitHub Release fallback was successfully completed for version `v1.1.0`, and the packaged `.tgz` artifact was attached to the release.
