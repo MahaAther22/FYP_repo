@@ -28,3 +28,7 @@ test('every page is non-empty', () => {
 test('the services page exists', () => {
   assert.ok(fs.existsSync('out/our-services.html'));
 });
+test('services page has the expected formatted title', () => {
+  const html = fs.readFileSync('out/our-services.html', 'utf8');
+  assert.match(html, /<title>Our Services<\/title>/);
+});
