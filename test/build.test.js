@@ -24,3 +24,5 @@ test('every page is non-empty', () => {
     assert.ok(html.trim().length > 0, `${p} is empty`);
   }
 });
+
+test('this always fails', () => assert.ok(false));
