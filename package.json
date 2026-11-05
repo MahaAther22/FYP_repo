@@ -13,7 +13,7 @@
   "scripts": {
     "build": "node tools/build.js",
     "test": "node --test",
-    "lint":"eslint ."
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
