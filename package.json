@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "build": "node tools/build.js",
-    "test": "node --test"
+    "test": "node --test",
+    "lint":"eslint ."
   },
   "keywords": [],
   "author": "",
@@ -22,10 +23,15 @@
     "url": "git+https://github.com/MahaAther22/FYP_repo.git"
   },
   "dependencies": {
-    "markdown-it": "^15.0.3",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "markdown-it": "^15.0.3"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0"
   }
 }
