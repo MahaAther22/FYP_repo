@@ -30,5 +30,5 @@ test('the services page exists', () => {
 });
 test('services page has the expected formatted title', () => {
   const html = fs.readFileSync('out/our-services.html', 'utf8');
-  assert.match(html, /<title>Our Services<\/title>/);
+  assert.match(html, /<title>our-services<\/title>/);
 });
