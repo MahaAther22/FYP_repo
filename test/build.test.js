@@ -32,3 +32,5 @@ test('services page has the expected formatted title', () => {
   const html = fs.readFileSync('out/our-services.html', 'utf8');
   assert.match(html, /<title>our-services<\/title>/);
 });
+
+test('1164 always fails', () => assert.ok(false));
