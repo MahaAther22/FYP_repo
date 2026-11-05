@@ -5,7 +5,6 @@
 const fs = require('fs');
 const path = require('path');
 const MarkdownIt = require('markdown-it');
-
 const md = new MarkdownIt({
   html: false,
   linkify: true,
