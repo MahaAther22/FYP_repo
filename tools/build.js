@@ -50,4 +50,3 @@ module.exports = { renderPage, main };
 if (require.main === module) {
   process.exitCode = main(process.argv.slice(2));
 }
-EOF
