@@ -14,3 +14,10 @@ test('a missing page is never a duplicate', () => {
   assert.strictEqual(isDuplicate(null, { title: 'a' }), false);
   assert.strictEqual(isDuplicate({ title: 'a' }, undefined), false);
 });
+
+test('pages with different letter cases are not duplicates', () => {
+  assert.strictEqual(
+    isDuplicate({ title: 'Hello' }, { title: 'hello' }),
+    false
+  );
+});
