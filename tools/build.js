@@ -1,4 +1,3 @@
-cat > tools/build.js <<'EOF'
 #!/usr/bin/env node
 // tools/build.js — renders one Markdown source into one HTML page.
 // Called by the Makefile: npm run build -- src/notes.md out/notes.html
