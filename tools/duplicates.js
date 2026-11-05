@@ -1,11 +1,13 @@
-//Two pages are duplicates if both exits and their title matches
-function isDuplicate(pageA, pageB){
-  if(!pageA || !pageB){
-	return false;
+// Two pages are duplicates if both exist and their titles match,
+// ignoring differences in capitalization.
+function isDuplicate(pageA, pageB) {
+  if (!pageA || !pageB) {
+    return false;
   }
-  return pageA.title === pageB.title;
- 
+
+  return pageA.title.toLowerCase() === pageB.title.toLowerCase();
 }
-module.exports={
-   isDuplicate
+
+module.exports = {
+  isDuplicate
 };
