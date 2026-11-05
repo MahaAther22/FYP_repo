@@ -1,11 +1,10 @@
-
 SRC_DIR := src
 OUT_DIR := out
 
 SOURCES := $(wildcard $(SRC_DIR)/*.md)
 OUTPUTS := $(patsubst $(SRC_DIR)/%.md,$(OUT_DIR)/%.html,$(SOURCES))
 
-.PHONY: all check deps build test coverage package clean ci lint
+.PHONY: all check deps build lint test coverage package clean ci
 
 all: test
 
@@ -33,20 +32,19 @@ lint: node_modules ## static analysis: seconds, so it runs first
 
 build: $(OUTPUTS)
 
-test: build
-	@npm test --silent
-
 coverage: build ## run tests and generate lcov coverage report
 	@mkdir -p coverage
 	node --test --experimental-test-coverage \
 		--test-reporter=spec --test-reporter-destination=stdout \
 		--test-reporter=lcov --test-reporter-destination=coverage/lcov.info
 
+test: build
+	@npm test --silent
+
 package: test
 	npm pack
 
-clean:
+clean: ## remove all generated files
 	rm -rf $(OUT_DIR) coverage *.tgz
 
-ci: clean deps check lint test package
-
+ci: clean deps check lint test package ## everything, in pipeline order
