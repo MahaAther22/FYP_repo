@@ -10,6 +10,7 @@ const md = new MarkdownIt({
   linkify: true,
   typographer: true
 });
+const unusedLimit = 100;
 
 // The part worth testing: Markdown text in, a complete HTML page out.
 function renderPage(markdown, title) {
