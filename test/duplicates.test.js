@@ -14,3 +14,4 @@ test('a missing page is never a duplicate', () => {
   assert.strictEqual(isDuplicate(null, { title: 'a' }), false);
   assert.strictEqual(isDuplicate({ title: 'a' }, undefined), false);
 });
+
